@@ -14,10 +14,8 @@ function renderBooks(filter) {
     books.sort((a, b) => b.rating - a.rating);
   }
 
-  let ratingHTML = "";
   
-}
-
+  
 
 const booksHtml = books.map(book => {
   return `<div class="book">
@@ -35,9 +33,14 @@ const booksHtml = books.map(book => {
             </div>
           </div>`
  })
- .join('')
+ .join('');
 
- booksWrapper.innerHTML = booksHtml;         
+
+ booksWrapper.innerHTML = booksHtml;
+
+}
+
+          
 
 function ratingHTML(rating) {
   let ratingHTML = ""; 
@@ -47,8 +50,7 @@ function ratingHTML(rating) {
 
      if (!Number.isInteger(rating)) {
       ratingHTML += '<i class="fas fa-star-half-alt"></i>\n'
-      console.log(ratingHTML)
-}
+    }
     return ratingHTML;
 }
 
