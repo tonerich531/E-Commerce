@@ -12,44 +12,43 @@ function renderBooks(filter) {
   }
   else if (filter === 'RATINGS') {
     books.sort((a, b) => b.rating - a.rating);
-  }
-
-  
+  }  
   
 
-const booksHtml = books.map(book => {
-  return `<div class="book">
-            <figure class="book__img--wrapper">
-              <img class="book__img" src="${book.url}" alt="">
-            </figure>
-            <div class="book__title">
-              ${book.title}
-            </div>
-            <div class="book__ratings">
-              ${ratingHTML(book.rating)}
-            </div>
-            <div class="book__price">
-              <span>$${book.originalPrice.toFixed(2)}</span> 
-            </div>
-          </div>`
- })
- .join('');
+const booksHtml = books
+  .map((book) => {
+    return `<div class="book">
+  <figure class="book__img--wrapper">
+    <img class="book__img" src="${book.url}" alt="">
+  </figure>
+  <div class="book__title">
+    ${book.title}
+  </div>
+  <div class="book__ratings">
+    ${ratingsHTML(book.rating)}
+  </div>
+  <div class="book__price">
+    <span>$${book.originalPrice.toFixed(2)}</span> 
+  </div>
+</div>`
+  })
+  .join("");
 
 
- booksWrapper.innerHTML = booksHtml;
+booksWrapper.innerHTML = booksHtml;
 
 }
 
           
 
-function ratingHTML(rating) {
+function ratingsHTML(rating) {
   let ratingHTML = ""; 
   for (let i = 0; i < Math.floor(rating); ++i) {
     ratingHTML += '<i class="fas fa-star"></i>'
   }
 
      if (!Number.isInteger(rating)) {
-      ratingHTML += '<i class="fas fa-star-half-alt"></i>\n'
+      ratingHTML += '<i class="fas fa-star-half-alt"></i>'
     }
     return ratingHTML;
 }
