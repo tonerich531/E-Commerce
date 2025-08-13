@@ -1,7 +1,6 @@
 function renderBooks(filter) {
   const booksWrapper = document.querySelector('.books')
 
-  
   const books = getBooks();
 
   if (filter === 'LOW_TO_HIGH') {
@@ -166,7 +165,7 @@ function getBooks() {
       salePrice: null,
       rating: 4.5,
     },
-  ];)
+  ])
 
     }, 1000)
 
